@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Liberal?</title>
+    </head>
+    <body>
+        <center>
+              <h1 id="geriSayim">10</h1>
+            &nbsp
+            <h1 class="yazi">Biz</h1>
+            <h1 class="yazi">Geliyoruz</h1>
+            <h1 class="yazi">Liberaller!</h1>
+            &nbsp
+            &nbsp
+            <h1 class="yazi2">Bana Tıkla ↓</h1>
+            <a href="https://discord.gg/ldp" class="yazi3">discord</a>
+        </center>
+        <p class="algoritma">01110011 01110111 01100101 01100010 01110000 01100101 01110010 01110011 01101111 01101110 01100101 01101100</p>
+        <script>
+            // Hedef tarih (yıl, ay (0-11), gün, saat, dakika, saniye)
+            var hedefTarih = new Date(2028, 4, 14, 0, 0, 0);
+        
+            // Geri sayımı yapacak olan fonksiyon
+            function geriSayim() {
+              var suan = new Date();
+        
+              // Kalan süreyi hesapla (milisaniye cinsinden)
+              var kalanSure = hedefTarih - suan;
+        
+              // Kalan süreyi gün, saat, dakika, saniye olarak dönüştür
+              var kalanGun = Math.floor(kalanSure / (1000 * 60 * 60 * 24));
+              var kalanSaat = Math.floor((kalanSure % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var kalanDakika = Math.floor((kalanSure % (1000 * 60 * 60)) / (1000 * 60));
+              var kalanSaniye = Math.floor((kalanSure % (1000 * 60)) / 1000);
+        
+              // Geri sayım elementini güncelle
+              var geriSayimElementi = document.getElementById("geriSayim");
+              geriSayimElementi.textContent = kalanGun + " gün " + kalanSaat + " saat " + kalanDakika + " dakika " + kalanSaniye + " saniye";
+        
+              // Geri sayım tamamlanmadıysa fonksiyonu 1 saniye sonra tekrar çağır
+              if (kalanSure > 0) {
+                setTimeout(geriSayim, 1000);
+              }
+            }
+        
+            // Geri sayımı başlat
+            geriSayim();
+          </script>
+    </body>
+</html>
